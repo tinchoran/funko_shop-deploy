@@ -1,0 +1,19 @@
+{
+  "name": "proyectocac",
+  "version": "1.0.0",
+  "description": "Proyecto de ecommerce de figuras coleccionables funko-pop",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Martín Ranzuglia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
