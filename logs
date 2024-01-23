@@ -1,0 +1,151 @@
+[33mcommit 14b705d95667fe88db23719ee5457a252b43f44b[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/create-modify-panels-admin[m[33m, [m[1;32mdevelop[m[33m)[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sat Jul 8 12:45:03 2023 -0300
+
+    [FEAT] - Router and Controllers for the application
+
+[33mcommit a823ea76e39b2ced449790d84cdf65f2a7e4bc7d[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Fri Jul 7 20:27:23 2023 -0300
+
+    [FEAT] - Server init and static folder
+
+[33mcommit 301aa2b91086eb48d27215a47c1700330f6ea5e2[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Thu Jun 22 13:31:18 2023 -0300
+
+    Agregación del carousel e interaccion con botones de item
+
+[33mcommit 47c01122861c8678aaaac54efa5fb26bb5abc141[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sat Apr 29 18:03:52 2023 -0300
+
+    Arreglo y vinculación de links
+
+[33mcommit 1e4dbc365e4e6fee88a80427f36e2683a5b80fc8[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sat Apr 29 17:46:48 2023 -0300
+
+    Estilización de la pagina register
+
+[33mcommit f795e2c6c0b7f04036ab115e2e8e4950b6c2f664[m
+Author: Martín Ranzuglia <108696589+tinchoran@users.noreply.github.com>
+Date:   Fri Apr 28 00:11:00 2023 -0300
+
+    Estilización parte login (#1)
+
+[33mcommit ded3308cfe65976c21a1e842cfe307dda7b6c04d[m
+Author: Martín Ranzuglia <108696589+tinchoran@users.noreply.github.com>
+Date:   Sun Apr 23 20:44:22 2023 -0300
+
+    Create README.md
+    
+    Se crea el README del proyecto.
+
+[33mcommit 1735bb753f16fb4bbe1a20f0c0adaf4facc438c9[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sat Apr 8 15:17:39 2023 -0300
+
+    Estilización página de listado de productos de admin
+
+[33mcommit 9b93429fe9a2a96de5dabf57ae14c109fe22904a[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Fri Apr 7 21:10:16 2023 -0300
+
+    Estilización de la página item
+
+[33mcommit d55824ab56fc3af4061551549e562aec67ad9e68[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Fri Apr 7 14:45:10 2023 -0300
+
+    Arreglo de los links
+
+[33mcommit 27f9302dc8a62812b67f71fa35a55af9995dad45[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Fri Apr 7 14:43:32 2023 -0300
+
+    Estilización de la parte de catalogo(falta paginación)
+
+[33mcommit d856a1b8331a3d1177c067c27fdbc026ece158e7[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Fri Apr 7 13:57:37 2023 -0300
+
+    Estilización del aside
+
+[33mcommit d5bbdb5eb42ddad680edcbe4eff25cb0fc991d71[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Thu Apr 6 17:49:50 2023 -0300
+
+    Footer estilizado
+
+[33mcommit 7ed64c47c88480b6794764c7278fa7aa6051153c[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Thu Apr 6 17:31:57 2023 -0300
+
+    Slider estilizado
+
+[33mcommit 06e26133276b4c0f64816c5a6bba5c0203b03f83[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Thu Apr 6 16:30:05 2023 -0300
+
+    Estiización de collection sections
+
+[33mcommit ad4dbdacfdf4986b0d61fbb96b36b14cf2cdb11a[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Thu Apr 6 13:23:27 2023 -0300
+
+    Estilización del hero
+
+[33mcommit bb0b824e37dd5c555fd5a04b894e5e80fc616b8e[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Thu Apr 6 00:01:51 2023 -0300
+
+    Estilización de header
+
+[33mcommit 594556209344f8c0c31e0af22f7d80820ad19bb5[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Tue Apr 4 21:32:24 2023 -0300
+
+    Formulario estilizado
+
+[33mcommit ff64b12b68363550f49ae1df33a50b6553b5e10d[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Tue Apr 4 00:33:03 2023 -0300
+
+    Estilizado parcial de la pagina shop (falta estilizar el form)
+
+[33mcommit ee48c9033d19933ae275accc31adf9b6edc7901c[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sun Apr 2 20:09:39 2023 -0300
+
+    Pagina principal estilo completado
+
+[33mcommit d833f8c4b94fc2ca04aa588f9ff69d3e12b872fc[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sun Apr 2 16:50:16 2023 -0300
+
+    Esilizado y arreglo del footer y estructura primaria de la ventana shop
+
+[33mcommit d8f4e0ad331bcce53814a99c8811f3cb7c6ce7c2[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sat Apr 1 18:55:56 2023 -0300
+
+    Header y Banner hechos
+
+[33mcommit f2cd1b9f4701f46f4d38c5cee35757f35656e6e1[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sat Apr 1 17:58:15 2023 -0300
+
+    Normalización de estilos y creación de variables usuales
+
+[33mcommit 242663bc51db2a81eb3aa2d3481fcf91e76d5ec8[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sat Apr 1 14:27:26 2023 -0300
+
+    Estructura finalizada
+
+[33mcommit 4ab6a005893037fa7f0bbdff32fb5589227f8965[m
+Author: Martin Ranzuglia <martinranzuglia@gmail.com>
+Date:   Sat Apr 1 14:23:41 2023 -0300
+
+    Estructura maquetada primer página terminada

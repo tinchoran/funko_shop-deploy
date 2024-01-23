@@ -1,0 +1,75 @@
+<%- include("../partials/header") %>
+
+<main class="container">
+
+    <section class="panel">
+
+        <h1 class="collection__title">Editar Producto</h1>
+
+        <form action="/admin/edit/<%= view.data.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="panel__form">
+            <label for="name">Nombre del producto: </label>
+            <input type="text" name="name" id="" value="<%= view.data.product_name %>">
+
+            <textarea name="description" id="" cols="30" rows="10" placeholder="Descripción del producto">
+                <%= view.data.product_description %>
+            </textarea>
+
+            <label for="price">Precio: </label>
+            <input type="text" name="price" id="" value="<%=view.data.price%>">
+
+            <label for="stock">Stock: </label>
+            <input type="number" name="stock" id="" value="<%=view.data.stock%>">
+
+            <label for="discount">Descuento: </label>
+            <input type="number" name="discount" id="" value="<%=view.data.discount%>">
+
+            <label for="sku">SKU: </label>
+            <input type="text" name="sku" id="" value="<%=view.data.sku%>">
+
+
+
+            <label for="dues">Cuotas: </label>
+            <select name="dues" id="">
+                <% if(view.data.dues === 3) { %>
+                    <option value="3" selected>3 cuotas sin interés</option>
+                <% } %>
+                <% if(view.data.dues === 6) { %>
+                    <option value="6" selected>6 cuotas sin interés</option>
+                <% } %>
+                <% if(view.data.dues === 9) { %>
+                    <option value="9" selected>9 cuotas sin interés</option>
+                <% } %>
+            </select>
+
+            <div class="product_images">
+                <picture class="product_image-container">
+                    <img src="/img/images_example<%=view.data.image_front %>" alt="">
+                </picture>
+                <picture class="product_image-container">
+                    <img src="/img/images_example<%=view.data.image_back %>" alt="">
+                </picture>
+            </div>
+
+            <label for="license">Licencia: </label>
+            <select name="license" id="">
+                <option value="1" selected>Seleccionar</option>
+                <option value="2">Opcion 1</option>
+            </select>
+
+            <label for="category">Categoría: </label>
+            <select name="category" id="">
+                <option value="1" selected>Seleccionar</option>
+                <option value="2">Opción 1</option>
+            </select>
+
+            
+
+            <button type="submit">Agregar Producto</button>
+            <button type="reset">Limpiar</button>
+        </form>
+
+    </section>
+    
+</main>
+
+<%- include("../partials/footer") %>

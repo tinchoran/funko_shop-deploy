@@ -1,0 +1,62 @@
+<%- include("../partials/header") %>
+
+<main class="container">
+
+    <section class="panel">
+
+        <h1 class="collection__title">CREAR NUEVO ITEM</h1>
+
+        <form action="" method="POST" enctype="multipart/form-data" class="panel__form">
+            <label for="name">Nombre del producto: </label>
+            <input type="text" name="name" id="">
+
+            <textarea name="description" id="" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+
+            <label for="price">Precio: </label>
+            <input type="text" name="price" id="">
+
+            <label for="stock">Stock: </label>
+            <input type="number" name="stock" id="">
+
+            <label for="discount">Descuento: </label>
+            <input type="number" name="discount" id="">
+
+            <label for="sku">SKU: </label>
+            <input type="text" name="sku" id="">
+
+
+
+            <label for="dues">Cuotas: </label>
+            <select name="dues" id="">
+                <option value="3" selected>3 cuotas sin interés</option>
+                <option value="6" >6 cuotas sin interés</option>
+                <option value="12">12 cuotas sin interés</option>
+            </select>
+
+            <label for="images">Imágenes</label>
+            <input type="file" name="images" id="" multiple>
+
+            <label for="license">Licencia: </label>
+            <select name="license" id="">
+                <option value="1" selected>Seleccionar</option>
+                <option value="2">Opcion 1</option>
+            </select>
+
+            <label for="category">Categoría: </label>
+            <select name="category" id="">
+                <option value="1" selected>Seleccionar</option>
+                <option value="2">Opción 1</option>
+            </select>
+
+            
+
+            <button type="submit">Agregar Producto</button>
+            <button type="reset">Limpiar</button>
+        </form>
+
+    </section>
+    
+</main>
+
+
+<%- include("../partials/footer") %>
