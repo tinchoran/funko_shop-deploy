@@ -1,0 +1,60 @@
+<%- include("../partials/header") %>
+<main class="container">
+    <section class="item-container">
+        <picture class="item__cover">
+            <img class="item-img__front" src="/img/<%=view.values.image_front%>" alt="<%= view.values.product_name %>" >
+            <img class="item-img__back" src="/img/<%=view.values.image_back%>" alt="<%= view.values.product_name %> en caja">
+        </picture>
+        <article class="item__content">
+            <p class="item__license"><%=view.licenses.find(li => li.license_id === view.values.license_id).license_name%></p>
+            <h3 class="item__name"> <%= view.values.product_name %></h3>
+            <p class="item__description" ><%= view.values.product_description %></p>
+            <p class="item__price">$ <%= view.values.price %></p>
+            <div class="item-functions">
+                <button class="item-functions__resta" id="substract">-</button>
+                <input class="item-functions__contador" type="text" name="quantity" id="quantity">
+                <button class="item-functions__suma" id="add">+</button>
+                <button class="item-functions__add" type="submit">Agregar al Carrito</button>
+            </div>
+            <a class="item__promo" href="#"><u>Ver métodos de pago</u> - <%=view.values.dues%> CUOTAS SIN INTERÉS</a>
+        </article>
+    </section>
+
+    <% if(view.related.length > 0) {%>
+        <section class="slider container glide">
+            <h2 class="slider__title">PRODUCTOS RELACIONADOS</h2>
+    
+            <div class="glide__track" data-glide-el="track">
+                <ul class="slider__items glide__slides">
+                    <% view.related.forEach(product => { %> 
+                        <% if(product.product_id !== view.values.product_id){%>
+                            <li class="slider__item glide__slide">
+                                <article class="card-item">
+                                    <a class="card-item__link" href="/shop/item/<%=product.product_id%>">
+                                        <picture class="card-item__cover">
+                                            <span class="card-item__tag">Nuevo</span>
+                                            <img class="card-item__img--front" src="/img/<%=product.image_front%>" alt="<%=product.product_description%>">
+                                            <img class="card-item__img--back" src="/img/<%=product.image_back%>" alt="<%=product.product_description%> en caja">
+                                        </picture>
+                                        <div class="card-item__content">
+                                            <p class="card-item__license"><%=view.licenses.find(li => li.license_id === product.license_id).license_name%></p>
+                                            <h4 class="card-item__name"><%=product.product_name%></h4>
+                                            <p class="card-item__price">$ <%= product.price%></p>
+                                            <p class="card-item__promo"><%= product.dues %> CUOTAS SIN INTERÉS</p>
+                                        </div>
+                                    </a>
+                                </article>
+                            </li>
+                        <%}%>
+
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="carousel__arrow glide__arrow glide__arrow--left" data-glide-dir="<"><iconify-icon icon="ic:round-chevron-left"></iconify-icon></button>
+                <button class="carousel__arrow glide__arrow glide__arrow--right" data-glide-dir=">"><iconify-icon icon="ic:round-chevron-right"></iconify-icon></button>
+            </div>
+        </section>
+    <% }%>
+</main>
+<%- include("../partials/footer") %>

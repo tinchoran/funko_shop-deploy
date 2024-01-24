@@ -3,16 +3,16 @@
     <nav class="navbar container">
         <ul class="navbar__items">
             <li class="navbar__item">
-                <a class="navbar__link" href="./pages/shop.html">SHOP</a>
+                <a class="navbar__link" href="/shop">SHOP</a>
             </li>
             <li class="navbar__item">
-                <a class="navbar__link" href="pages/register.html">REGISTRARSE</a>
+                <a class="navbar__link" href="/register">REGISTRARSE</a>
             </li>
             <li class="navbar__item">
-                <a class="navbar__link" href="pages/login.html">INGRESAR</a>
+                <a class="navbar__link" href="/login">INGRESAR</a>
             </li>
             <li class="navbar__item">
-                <a class="navbar__link" href="#">CONTACTO</a>
+                <a class="navbar__link" href="/contact">CONTACTO</a>
             </li>
         </ul>
         <picture>
@@ -29,6 +29,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 
 <script src="js/glide.js"></script>
-
+<% view.scripts.forEach(script => { %> 
+    <script src="<%= script %>"></script>
+<% }) %>
 </body>
 </html>

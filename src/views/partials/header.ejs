@@ -8,7 +8,7 @@
     <% view.styles.forEach(el =>  { %>
         <link rel="stylesheet" href="<%=el%>">
     <%}) %>
-    <link rel="icon" type="img/svg" href="../img/branding/isotype.svg">
+    <link rel="icon" type="img/svg" href="<%= view.arregloLogo %>../img/branding/isotype.svg">
 
 </head>
 <body>
@@ -18,7 +18,7 @@
 
             <picture class="navbar__logo">
                 <a href="/home">
-                    <img src="../img/branding/logo_light_horizontal.svg" alt="Logotipo" id="logo">
+                    <img src="<%= view.arregloLogo %>../img/branding/logo_light_horizontal.svg" alt="Logotipo" id="logo">
                 </a>
             </picture>
 

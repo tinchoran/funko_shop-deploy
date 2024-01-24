@@ -5,9 +5,17 @@ const getAllProducts = async () => {
     return await productModel.getAll()
 }
 
+const getLicenses = async () => {
+    return await productModel.getLicenses();
+}
+
 const getProductById = async (id) => {
 
     return await productModel.getOne({product_id: id})
+}
+
+const getRelated = async (id) => {
+    return await productModel.getRelated({license_id: id})
 }
 
 const createProduct = async (params, files) => {
@@ -60,6 +68,8 @@ const deleteProduct = async (id) => {
 module.exports = {
     getProductById,
     getAllProducts,
+    getLicenses,
+    getRelated,
     createProduct,
     modifyProduct,
     deleteProduct

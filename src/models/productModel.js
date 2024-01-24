@@ -50,13 +50,64 @@ const getOne = async (params) => {
 
 }
 
+const getLicenses = async () => {
+
+    try {
+        
+        const [ rows ] = await conn.query("SELECT * FROM license;")
+
+        return {
+            isError: false,
+            info: rows
+        }
+
+    } catch (error) {
+        
+        return {
+            isError: true,
+            msg: "Hubo un error al rescatar las licencias de la BDD: " + error
+        }
+
+    } finally {
+        
+        conn.releaseConnection();
+
+    }
+
+}
+
+const getRelated = async (params) => {
+
+    try {
+        
+        const [ rows ] = await conn.query("SELECT * FROM product WHERE ? ", params);
+
+        return {
+            isError: false,
+            info: rows
+        }
+
+    } catch (error) {
+        
+        return {
+            isError: true,
+            msg: "Hubo un error al rescatar los productos relacionados: " + error
+        }
+
+    } finally {
+        conn.releaseConnection()
+    }
+
+}
 
 const createProduct = async (params) => {
 
     try {
         
-        const [rows] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, license_id, category_id) VALUES ?;', [params]);
-
+        const [rows] = await conn.query(
+            'INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, license_id, category_id) VALUES ?;', 
+            [params]
+        );
         console.log(rows);
 
         return {
@@ -131,5 +182,7 @@ module.exports = {
     getOne,
     createProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getLicenses,
+    getRelated
 }
