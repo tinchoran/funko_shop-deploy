@@ -76,6 +76,32 @@ const getLicenses = async () => {
 
 }
 
+const getCategories = async () => {
+
+    try {
+        
+        const [ rows ] = await conn.query("SELECT * FROM category;");
+
+        return {
+            isError: false,
+            info: rows
+        }
+
+    } catch (error) {
+        
+        return {
+            isError: true,
+            msg: "Hubo un error al rescatar las categorias: " + error
+        }
+
+    } finally {
+
+        conn.releaseConnection();
+
+    }
+
+}
+
 const getRelated = async (params) => {
 
     try {
@@ -180,6 +206,7 @@ const deleteProduct = async (params) => {
 module.exports = {
     getAll,
     getOne,
+    getCategories,
     createProduct,
     updateProduct,
     deleteProduct,

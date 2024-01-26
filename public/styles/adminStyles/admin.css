@@ -50,6 +50,7 @@
     padding: var(--spacing-36) 0 var(--spacing-68) 0;
 }
 
+
 /*BUSQUEDA CONTAINER*/
 .busqueda__form {
     padding: var(--spacing-36) 0;
@@ -104,22 +105,22 @@
 
 .functions__button {
     cursor: pointer;
-    background-color: var(--primary-solid);
-    color: var(--light-font-solid);
-    width: 4rem;
-    height: 4rem;
-    border: none;
-    border-radius: 6px;
-    font-size: var(--font-jumbo);
-    transition: all .3s;
+    font-size: var(--font-xlarge);
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    transition: .5s ease;
 }
 
-.functions__button:hover {
-    filter: invert(1);
-    transform: translateY(-1px);
-    box-shadow: 1px 1px 5px var(--primary-900);
+.functions__button:hover{
+    filter:invert(.4);
+    transform: rotateZ(-10deg) translateY(-2px);
 }
 
+
+.functions__button iconify-icon{
+    font-size: var(--font-medium);
+}
 
 
 .listado__items {
@@ -162,3 +163,4 @@
     filter:  brightness(.1);
     transform: translateY(-1px);
 }
+

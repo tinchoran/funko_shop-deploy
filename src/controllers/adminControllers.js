@@ -1,17 +1,35 @@
 const { getOne } = require("../models/productModel");
-const { createProduct } = require("../services/productServices")
+const { createProduct, getAllProducts, getCategories } = require("../services/productServices")
 
 const adminControllers = {
 
 
-    adminHome: (req, res)=> res.send("Route for admin View"),
+    adminHome: async (req, res) => {
+
+        const result = await getAllProducts();
+        const categories = await getCategories();
+
+        res.render("admin/admin", {
+            view: {
+                values: result.info,
+                categories: categories.info,
+                windowName: "Panel de Control",
+                styles: ["../styles/index.css", "../styles/adminStyles/admin.css"],
+                scripts: [],
+                type: "admin"
+            }
+        })
+
+
+    } ,
 
 
     getCreateElementView: (req, res) => {
         res.render("admin/create", {
             view:{
                 windowName: "Crear Producto",
-                styles: ["../../styles/index.css"],
+                styles: ["../../styles/index.css", "../../styles/adminStyles/create.css"],
+                scripts: []
             }
         })
     },

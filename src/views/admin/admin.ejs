@@ -1,0 +1,51 @@
+<%- include("../partials/header") %>
+<main class="container main-container">
+    <form class="busqueda__form">
+        <button type="submit" class="busqueda__button">
+            <img src="../../img/icons/search_icon.svg" alt="Icono de búsqueda">
+        </button>
+        <input type="text" name="busqueda"  class="busqueda__input" placeholder="código, nombre o categoria">
+    </form>
+    <section class="listado-container">
+        <article class="listado__header">
+            <h1 class="listado__title">LISTADO DE PRODUCTOS</h1>
+            <div class="listado__functions">
+                <h3 class="functions__title">AGREGAR</h3>
+                <a href="/admin/create" class="functions__button">
+                    <iconify-icon icon="bxs:plus-square" style="color: #f33;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path fill="#FF3333" d="M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2m2-10h4V7h2v4h4v2h-4v4h-2v-4H7z"></path></svg>
+                    </iconify-icon>
+                </a>
+            </div>
+        </article>
+
+        <ul class="listado__items">
+            <li class="listado__item">
+                <p class="listado__titles">ID</p>
+                <p class="listado__titles">Código</p>
+                <p class="listado__titles">Nombre del Producto</p>
+                <p class="listado__titles">Categoria</p>
+           </li>
+            <% view.values.forEach(el => { %>
+            <li class="listado__item">
+                    <p class="listado-item__text"><%= el.product_id %></p>
+                    <p class="listado-item__text"><%= el.sku %></p>
+                    <p class="listado-item__text"><%= el.product_name %></p>
+                    <p class="listado-item__text">
+                        <%= view.categories.find(cat => cat.category_id == cat.category_id).category_name %>  
+                    </p>
+                    <a href="/admin/edit/<%= el.product_id %>">
+                        <img src="../../img/icons/edit_pencil.svg" alt="Editar producto">
+                    </a>
+                    <a href="/admin/delete/<%= el.product_id %>">
+                        <img src="../../img/icons/delete_trash.svg" alt="Borrar producto">
+                    </a>
+            </li>
+            <% } ) %> 
+
+        </ul>
+
+    </section>
+
+</main>
+<%- include("../partials/footer") %>
