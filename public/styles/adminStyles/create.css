@@ -81,7 +81,7 @@
 
 .form__select{
     border-radius: 6px;
-    border: 2px solid var(--dark-solid);
+    border: 3px solid var(--dark-solid);
     font-size: var(--font-medium);
     padding: var(--spacing-8);
 }
@@ -144,4 +144,19 @@ textarea{
 .btn{
     border: none;
     cursor: pointer;
+}
+
+
+/*  Edit View Elementes  */
+.edit__img{
+    max-width: 15rem;
+    padding-bottom: var(--spacing-8);
+}
+
+.edit__img-side{
+    font-size: var(--font-small);
+    text-align: center;
+    padding-top: var(--spacing-8);
+    border-top: 3px solid var(--primary-solid);
+    font-weight: 600;
 }

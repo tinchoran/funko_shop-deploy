@@ -27,6 +27,29 @@ const getAll = async ( page ) => {
 
 }
 
+const getAllAdmin = async() => {
+
+    try {
+        
+        const [ rows ] = await conn.query("SELECT * FROM PRODUCT;");
+
+        return {
+            isError: false,
+            info: rows
+        }
+
+    } catch (error) {
+        
+        return {
+            isError: true,
+            msg: "No se pudieron rescatar los productos de la BDD: " + error
+        }
+
+    } finally {
+        conn.releaseConnection();
+    }
+
+}
 
 const getOne = async (params) => {
 
@@ -160,14 +183,17 @@ const createProduct = async (params) => {
 }
 
 
-const updateProduct = async (params) => {
+const updateProduct = async (params, id) => {
 
     try {
         
-        await conn.query(
-            "UPDATE product SET ? WHERE ?;", 
-            [params, {product_id: params.product_id}]
-        )
+        const [ rows ] = await conn.query("UPDATE product SET ? WHERE ?;", [params, id])
+
+        return {
+            isError: false,
+            msg: "El ítem fue modificado exitosamente",
+            status: rows
+        }
 
     } catch (error) {
         
@@ -220,5 +246,6 @@ module.exports = {
     updateProduct,
     deleteProduct,
     getLicenses,
+    getAllAdmin,
     getRelated
 }

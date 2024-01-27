@@ -1,12 +1,12 @@
 const { getOne, getLicenses } = require("../models/productModel");
-const { createProduct, getAllProducts, getCategories, deleteProduct } = require("../services/productServices")
+const { createProduct, getAllProducts, modifyProduct, getCategories, deleteProduct, getAllAdmin } = require("../services/productServices")
 
 const adminControllers = {
 
 
     adminHome: async (req, res) => {
 
-        const result = await getAllProducts();
+        const result = await getAllAdmin();
         const categories = await getCategories();
 
         res.render("admin/admin", {
@@ -53,27 +53,37 @@ const adminControllers = {
 
 
     getEditableItem: async (req, res) => {
-
         const id = req.params.id;
 
-        const data = await getOne({product_id: Number(id)});
+        const result = await getOne({product_id: Number(id)});
+        const categories = await getCategories();
+        const licenses = await getLicenses();
 
-        const product = data.info[0];
-
-        console.log(product);
+        const cuotas = [0, 3, 6, 9, 12, 18, 24]
 
         res.render("admin/modify", {
             view:{
+                categories: categories.info,
+                licenses: licenses.info,
                 windowName: "Editar Ítem",
-                styles: ["../../styles/index.css"],
-                data: product
+                cuotas,
+                styles: ["../../styles/index.css", "../../styles/adminStyles/create.css"],
+                result: result.info[0],
+                scripts: [""]
             }
         }) 
 
     },
 
 
-    editItem: (req, res)=> res.send("Route for edit an item by id"),
+    editItem: async (req, res) => {
+        const id = req.params.id;
+        const item = req.body;
+        console.log(item);
+        const result = await modifyProduct(item, id)
+        console.log(result);
+        res.redirect("/admin")
+    },
 
 
     deleteItem: async (req, res) => {

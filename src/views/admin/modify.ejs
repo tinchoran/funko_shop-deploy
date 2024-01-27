@@ -4,72 +4,99 @@
 
     <section class="panel">
 
-        <h1 class="collection__title">Editar Producto</h1>
+        <h1 class="create__title">EDITAR ITEM</h1>
 
-        <form action="/admin/edit/<%= view.data.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="panel__form">
-            <label for="name">Nombre del producto: </label>
-            <input type="text" name="name" id="" value="<%= view.data.product_name %>">
-
-            <textarea name="description" id="" cols="30" rows="10" placeholder="Descripción del producto">
-                <%= view.data.product_description %>
-            </textarea>
-
-            <label for="price">Precio: </label>
-            <input type="text" name="price" id="" value="<%=view.data.price%>">
-
-            <label for="stock">Stock: </label>
-            <input type="number" name="stock" id="" value="<%=view.data.stock%>">
-
-            <label for="discount">Descuento: </label>
-            <input type="number" name="discount" id="" value="<%=view.data.discount%>">
-
-            <label for="sku">SKU: </label>
-            <input type="text" name="sku" id="" value="<%=view.data.sku%>">
-
-
-
-            <label for="dues">Cuotas: </label>
-            <select name="dues" id="">
-                <% if(view.data.dues === 3) { %>
-                    <option value="3" selected>3 cuotas sin interés</option>
-                <% } %>
-                <% if(view.data.dues === 6) { %>
-                    <option value="6" selected>6 cuotas sin interés</option>
-                <% } %>
-                <% if(view.data.dues === 9) { %>
-                    <option value="9" selected>9 cuotas sin interés</option>
-                <% } %>
-            </select>
-
-            <div class="product_images">
-                <picture class="product_image-container">
-                    <img src="/img/images_example<%=view.data.image_front %>" alt="">
-                </picture>
-                <picture class="product_image-container">
-                    <img src="/img/images_example<%=view.data.image_back %>" alt="">
-                </picture>
+        <form action="/admin/edit/<%= view.result.product_id %>?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded" class="create__form">
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="category">Categoría:</label>
+                    <select class="form__select" name="category" id="category" required>
+                        <option value="" disabled selected hidden>Seleccionar</option>
+                        <% view.categories.forEach(cat => { %>
+                            <option value="<%=cat.category_id%>" 
+                                <% if(cat.category_id === view.result.category_id) { %>selected<% } %> 
+                            >
+                            <%= cat.category_name %>
+                            </option>
+                        <% }) %>
+                        
+                    </select>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="collection">Licencia:</label>
+                    <select class="form__select" name="collection" id="collection" required>
+                        <option value="" disabled selected hidden>Seleccionar</option>
+                        <% view.licenses.forEach(li => { %>
+                            <option value="<%=li.license_id%>" 
+                                <% if(li.license_id === view.result.license_id) { %>selected<% } %> 
+                            >
+                            <%= li.license_name %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
             </div>
-
-            <label for="license">Licencia: </label>
-            <select name="license" id="">
-                <option value="1" selected>Seleccionar</option>
-                <option value="2">Opcion 1</option>
-            </select>
-
-            <label for="category">Categoría: </label>
-            <select name="category" id="">
-                <option value="1" selected>Seleccionar</option>
-                <option value="2">Opción 1</option>
-            </select>
-
-            
-
-            <button type="submit">Agregar Producto</button>
-            <button type="reset">Limpiar</button>
+            <div class="form__box--flex">
+                <label class="form__label" for="name">Nombre del producto:</label>
+                <input class="form__input" type="text" name="name" id="name" value="<%= view.result.product_name %>" required>
+            </div>
+            <div>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto" required><%= view.result.product_description %></textarea>
+            </div>
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="sku">SKU:</label>
+                    <input class="form__input" type="text" name="sku" id="sku" value="<%=view.result.sku%>" required>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="price">Precio:</label>
+                    <div class="form__input--wrapper"><span>$</span><input class="form__input" type="text" name="price" id="price" data-type="currency" value="<%= view.result.price %>"></div>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="stock">Stock:</label>
+                    <div class="form__input--wrapper"><input class="form__input" type="text" name="stock" id="stock" value="<%=view.result.stock%>" required><span>unidades</span></div>
+                </div>
+            </div>
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="discount">Descuento:</label>
+                    <div class="form__input--wrapper"><input class="form__input" type="text" name="discount" id="discount" value="<%=view.result.discount%>" required><span>%</span></div>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="dues">Cuotas:</label>
+                    <select class="form__select" name="dues" id="dues">
+                        <% view.cuotas.forEach(num => { %>
+                            <option value=<%=num %> 
+                                <%if(num === view.result.dues){%> selected <%}%>>
+                                <%if(num === 0){%>
+                                    Sin cuotas
+                                <%}else{ %><%=num %> cutoas s/interés
+                                <% } %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+            <div class="form__box--flex">
+                <div class="edit__img">
+                    <img src="/uploads/<%=view.result.image_front%>" alt="Baby Yoda Blueball">
+                    <p class="edit__img-side">Frente</p>
+                </div>
+                <div class="edit__img">
+                    <img src="/uploads/<%=view.result.image_back%>" alt="Baby Yoda Blueball en caja">
+                    <p class="edit__img-side">Dorso</p>
+                </div>
+            </div>
+            <div class="form__flex">
+                <input class="form__btn btn btn--primary btn--large" type="submit" value="Actualizar Producto">
+                
+            </div>
+        </form>
         </form>
 
     </section>
     
 </main>
+
 
 <%- include("../partials/footer") %>
