@@ -1,9 +1,13 @@
 const { conn } = require("../config/conn");
 
-const getAll = async () => {
-    
+const getAll = async ( page ) => {
+
+    const limit = 12; //Cantidad de elementos que traemos
+
     try {
-        const [ rows ] = await conn.query("SELECT * FROM product;"); 
+        const [ rows ] = await conn.query("SELECT * FROM product LIMIT ? OFFSET ?;", 
+            [ limit, (page - 1) * limit]
+        ); 
 
         return {
             isError: false,

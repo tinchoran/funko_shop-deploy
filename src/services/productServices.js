@@ -1,8 +1,11 @@
 const productModel = require("../models/productModel")
 
 
-const getAllProducts = async () => {
-    return await productModel.getAll()
+const getAllProducts = async (page) => {
+    if(!page){
+        page = 1;
+    }
+    return await productModel.getAll(page)
 }
 
 const getLicenses = async () => {

@@ -2,9 +2,17 @@ const { getAllProducts, getProductById, getLicenses, getRelated} = require("../s
 
 const shopControllers = {
     shop: async (req, res)=> {
+        let page = Number(req.query.page);
         const licenseFilter = Number(req.query.license); 
 
-        const result = await getAllProducts();
+        let result;
+
+        if(licenseFilter){
+            result = await getRelated(licenseFilter)
+        } else {
+            result = await getAllProducts(page);
+        }
+
         const licenseResult = await getLicenses();
 
         const millisecondsADay = 86400000
@@ -13,15 +21,15 @@ const shopControllers = {
         if(result.isError){
              console.log(result.msg);
              res.status(500).send("Hemos tenido un error al consultar los datos");
-
         }
+
+
         res.render("shop/shop", {
             view: {
                 millisecondsADay,
                 newDate,
                 values: result.info,
                 licenses: licenseResult.info,
-                licenseFilter,
                 windowName: "Shop",
                 styles: ["../styles/index.css", "../styles/shop.css"],
                 scripts: [
