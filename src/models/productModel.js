@@ -134,7 +134,7 @@ const createProduct = async (params) => {
             'INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, license_id, category_id) VALUES ?;', 
             [params]
         );
-        console.log(rows);
+        //console.log(rows);
 
         return {
             isError:false,
@@ -186,6 +186,11 @@ const deleteProduct = async (params) => {
     try {
         
         await conn.query("DELETE FROM product WHERE ?;", params)
+
+        return {
+            isError: false,
+            msg: "Producto eliminado con éxito"
+        }
 
     } catch (error) {
         

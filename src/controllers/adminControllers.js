@@ -1,5 +1,5 @@
-const { getOne } = require("../models/productModel");
-const { createProduct, getAllProducts, getCategories } = require("../services/productServices")
+const { getOne, getLicenses } = require("../models/productModel");
+const { createProduct, getAllProducts, getCategories, deleteProduct } = require("../services/productServices")
 
 const adminControllers = {
 
@@ -24,10 +24,15 @@ const adminControllers = {
     } ,
 
 
-    getCreateElementView: (req, res) => {
+    getCreateElementView: async (req, res) => {
+        const categories = await getCategories();
+        const licenses = await getLicenses();
+
         res.render("admin/create", {
             view:{
                 windowName: "Crear Producto",
+                categories: categories.info,
+                licenses: licenses.info,
                 styles: ["../../styles/index.css", "../../styles/adminStyles/create.css"],
                 scripts: []
             }
@@ -38,15 +43,11 @@ const adminControllers = {
     createElement: async (req,  res) => {
 
         const item = req.body;
-        console.log("item!!!!!:::", item)
-
+ 
         const files = req.files;
-        console.log(files)
 
         const result = await createProduct(item, files);
         
-        console.log(result);
-
         res.redirect("/admin")
     },
 
@@ -75,7 +76,14 @@ const adminControllers = {
     editItem: (req, res)=> res.send("Route for edit an item by id"),
 
 
-    deleteItem: (req, res)=> res.send("Route for delete an item by id")
+    deleteItem: async (req, res) => {
+        
+        const id = req.params.id;
+
+        await deleteProduct(id);
+
+        res.redirect("/admin")
+    } 
 
 
 };

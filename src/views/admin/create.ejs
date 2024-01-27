@@ -12,12 +12,9 @@
                     <label class="form__label" for="category">Categoría:</label>
                     <select class="form__select" name="category" id="category" required>
                         <option value="" disabled selected hidden>Seleccionar</option>
-                        
-                          <option value="1">Figuras Coleccionables</option>
-                        
-                          <option value="2">Remeras</option>
-                        
-                          <option value="3">LLaveros</option>
+                        <% view.categories.forEach(cat => { %>
+                            <option value="<%=cat.category_id%>"><%=cat.category_name%></option>
+                        <%}) %>
                         
                     </select>
                 </div>
@@ -25,15 +22,10 @@
                     <label class="form__label" for="collection">Licencia:</label>
                     <select class="form__select" name="collection" id="collection" required>
                         <option value="" disabled selected hidden>Seleccionar</option>
-                        
-                          <option value="1">Pokemon</option>
-                        
-                          <option value="2">Star Wars</option>
-                        
-                          <option value="3">Harry Potter</option>
-                        
-                          <option value="4">Naruto</option>
-                        
+                          <% view.licenses.forEach(li => { %>
+                            <option value="<%=li.license_id%>"><%=li.license_name%></option>
+                          <%}) %>
+                          
                     </select>
                 </div>
             </div>

@@ -2,8 +2,13 @@ const { getAllProducts, getProductById, getLicenses, getRelated} = require("../s
 
 const shopControllers = {
     shop: async (req, res)=> {
+        const licenseFilter = Number(req.query.license); 
+
         const result = await getAllProducts();
         const licenseResult = await getLicenses();
+
+        const millisecondsADay = 86400000
+        const newDate = new Date();
 
         if(result.isError){
              console.log(result.msg);
@@ -12,11 +17,17 @@ const shopControllers = {
         }
         res.render("shop/shop", {
             view: {
+                millisecondsADay,
+                newDate,
                 values: result.info,
                 licenses: licenseResult.info,
+                licenseFilter,
                 windowName: "Shop",
                 styles: ["../styles/index.css", "../styles/shop.css"],
-                scripts: [""]
+                scripts: [
+                    "https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js",
+                    "../js/pagination.js"
+                ]
             }
         })
     },
@@ -27,13 +38,18 @@ const shopControllers = {
         const licenseResult = await getLicenses();
         const related = await getRelated(result.info[0].license_id);
 
+        const millisecondsADay = 86400000
+        const newDate = new Date();
+
         if(result.isError){
             console.log(result.msg);
             res.status(500).send("Hemos tenido un error al consultar los datos");
         }
-        console.log(related.info.length);
+   
         res.render("shop/item", {
             view: {
+               millisecondsADay,
+               newDate,
                values: result.info[0],
                licenses: licenseResult.info,
                related: related.info,

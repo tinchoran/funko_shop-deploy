@@ -164,3 +164,15 @@
     transform: translateY(-1px);
 }
 
+
+.admin-table__btn-delete{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.admin-table__btn-delete:hover{
+    filter:invert(.4);
+    transform: rotateZ(-10deg) translateY(-2px);
+}

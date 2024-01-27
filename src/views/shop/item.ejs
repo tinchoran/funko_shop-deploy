@@ -2,8 +2,8 @@
 <main class="container">
     <section class="item-container">
         <picture class="item__cover">
-            <img class="item-img__front" src="/img/<%=view.values.image_front%>" alt="<%= view.values.product_name %>" >
-            <img class="item-img__back" src="/img/<%=view.values.image_back%>" alt="<%= view.values.product_name %> en caja">
+            <img class="item-img__front" src="/uploads<%=view.values.image_front%>" alt="<%= view.values.product_name %>" >
+            <img class="item-img__back" src="/uploads<%=view.values.image_back%>" alt="<%= view.values.product_name %> en caja">
         </picture>
         <article class="item__content">
             <p class="item__license"><%=view.licenses.find(li => li.license_id === view.values.license_id).license_name%></p>
@@ -32,9 +32,11 @@
                                 <article class="card-item">
                                     <a class="card-item__link" href="/shop/item/<%=product.product_id%>">
                                         <picture class="card-item__cover">
-                                            <span class="card-item__tag">Nuevo</span>
-                                            <img class="card-item__img--front" src="/img/<%=product.image_front%>" alt="<%=product.product_description%>">
-                                            <img class="card-item__img--back" src="/img/<%=product.image_back%>" alt="<%=product.product_description%> en caja">
+                                            <% if(((view.newDate.getTime() - product.create_time.getTime()) / view.millisecondsADay) < 15 ){%>
+                                                <span class="card-item__tag">Nuevo</span>
+                                            <%}%>
+                                            <img class="card-item__img--front" src="/uploads<%=product.image_front%>" alt="<%=product.product_description%>">
+                                            <img class="card-item__img--back" src="/uploads<%=product.image_back%>" alt="<%=product.product_description%> en caja">
                                         </picture>
                                         <div class="card-item__content">
                                             <p class="card-item__license"><%=view.licenses.find(li => li.license_id === product.license_id).license_name%></p>

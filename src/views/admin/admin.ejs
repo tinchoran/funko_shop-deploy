@@ -37,9 +37,11 @@
                     <a href="/admin/edit/<%= el.product_id %>">
                         <img src="../../img/icons/edit_pencil.svg" alt="Editar producto">
                     </a>
-                    <a href="/admin/delete/<%= el.product_id %>">
-                        <img src="../../img/icons/delete_trash.svg" alt="Borrar producto">
-                    </a>
+                    <form action="/admin/delete/<%= el.product_id %>?_method=DELETE" method="POST">
+                        <button class="admin-table__btn-delete" type="submit">
+                            <img src="../../img/icons/delete_trash.svg" alt="Editar producto">
+                        </button>
+                    </form>
             </li>
             <% } ) %> 
 

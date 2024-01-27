@@ -34,7 +34,7 @@ const createProduct = async (params, files) => {
         dues: params.dues,
         image_front: "/" + files[0].filename,
         image_back: "/" + files[1].filename,
-        license_id: params.license,
+        license_id: params.collection,
         category_id: params.category
     }
 
@@ -55,7 +55,7 @@ const modifyProduct = async (params) => {
         image_front: "/" + files[0].filename,
         image_back: "/" + files[1].filename,
         create_time: params.create_time,
-        license_id: params.license,
+        license_id: params.collection,
         category_id: params.category
     }
 
