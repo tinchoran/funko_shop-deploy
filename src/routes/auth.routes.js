@@ -20,4 +20,6 @@ router.post("/login", loginValidations, validateInput, authControllers.logUserIn
 router.get("/register", authControllers.getRegisterView)
 router.post("/register", authControllers.getRegisterView)
 
+router.get("/logout", authControllers.logOut)
+
 module.exports = router;

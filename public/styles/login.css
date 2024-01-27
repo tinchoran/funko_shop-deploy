@@ -45,13 +45,13 @@
 }
 
 
-.login__container {
-    padding: var(--spacing-36);
-    width: 100%;
+#login{
+    margin: var(--spacing-128) auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    color: var(--dark-solid);
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--spacing-36);
 }
 
 
@@ -59,38 +59,40 @@
     font-family: var(--alternative-font);
     font-size: var(--font-display);
     font-weight: 700;
+    text-align: center;
 }
 
 
 #login__form {
+    margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
     gap: var(--spacing-36);
-    padding: var(--spacing-28) 0;
 }
 
 .login__separador {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     align-items: center;
-    gap: var(--spacing-20);
-    font-family: var(--base-font);
+    gap: var(--spacing-36);
 }
 
 
 .login__label {
-    font-size: var(--font-large);
-    font-weight: 400;
+    font-size: var(--font-medium);
+    font-weight: 700;
     margin: 0 var(--spacing-8);
 }
 
 .login__input {
     border: none;
-    border-bottom: 2px solid var(--primary-solid);
+    border-bottom: 3px solid var(--primary-solid);
     outline: none;
-    font-size: var(--font-small);
-    padding: 0 var(--spacing-8);
+    font-size: var(--font-medium);
+    font-weight: 500;
+    padding: var(--spacing-8) var(--spacing-8);
 }
 
 .login__label:last-child {
@@ -100,12 +102,11 @@
 
 .login__btn {
     background-color: var(--primary-solid);
-    font-size: var(--font-xsmall);
+    font-size: var(--font-small);
     cursor: pointer;
     color: var(--light-font-solid);
     border: none;
     padding: var(--spacing-12) var(--spacing-28);
-    margin: 0 auto; 
     transition: .3s;
 }
 
@@ -116,7 +117,6 @@
 }
 
 .login__recordarme {
-    margin: 0 auto;
     display: flex;
     align-items: center;
     height: 100%;
@@ -128,10 +128,18 @@
 }
 
 .login__link {
+    text-align: center;
     color:var(--secondary-solid);
-    font-size: var(--font-xsmall);
+    font-size: var(--font-small);
 }
 
 .login__link:hover{
     text-decoration: underline;
+}
+
+.form_submission {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-36);
 }

@@ -35,8 +35,12 @@ module.exports = {
     },
     getRegisterView: (req, res) => res.send("Route for getting the Register View"),
 
-    registerUser: (req, res) => res.send("Route for register an user")
+    registerUser: (req, res) => res.send("Route for register an user"),
 
+    logOut: (req, res) => {
+        req.session.isLogged = false;
+        res.send("Sesión finalizada con éxito")
+    }
     
 }
 
